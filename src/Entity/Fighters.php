@@ -29,7 +29,7 @@ class Fighters
     private ?int $power = null;
 
     #[ORM\ManyToOne(inversedBy: 'fighters')]
-    private ?sides $side = null;
+    private ?Sides $side = null;
 
     public function getId(): ?int
     {
@@ -96,12 +96,12 @@ class Fighters
         return $this;
     }
 
-    public function getSide(): ?sides
+    public function getSide(): ?Sides
     {
         return $this->side;
     }
 
-    public function setSide(?sides $side): static
+    public function setSide(?Sides $side): static
     {
         $this->side = $side;
 
