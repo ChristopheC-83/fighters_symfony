@@ -16,14 +16,21 @@
 			{% endblock %}
 		{% endblock %}
 	</head>
-	<body class="min-h-svh flex flex-col">
-        <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 midFlex p-10">
-            <h1 class="text-5xl font-bold text-neutral-200 text_shadow">Mon Deck de Fighters</h1>
-        </header>
-		<div class="grow">{% block body %}{% endblock %}</div>
-
-        <footer class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 e p-4 midFlex">
-            <p class="text-2xl font-bold text-neutral-200 text_shadow">&copy; 2021 - My App</p>
-        </footer>
-	</body>
-</html>
+	<body class="flex flex-col min-h-svh">
+		<header class="flex-col p-4 pt-6 mb-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 midFlex">
+			<h1 class="text-5xl font-bold text-neutral-200 text_shadow">Mon Deck de Fighters</h1>
+			<nav class="flex max-w-[800px] mx-auto mb-3 mt-4 items-start justify-evenly gap-x-5">
+			<a class="text-xl text-neutral-200 hover:text-neutral-300 cupo">Accueil</a>
+			<a class="text-xl text-neutral-200 hover:text-neutral-300 cupo">Créer</a>
+			<a class="text-xl text-neutral-200 hover:text-neutral-300 cupo">Lumière</a>
+			<a class="text-xl text-neutral-200 hover:text-neutral-300 cupo">Obscur</a>
+			</nav>
+		</header>
+		<div class="grow"> {% block body %}{% endblock %}
+			</div>
+			<footer class="p-4 mt-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 midFlex">
+				<p class="text-2xl font-bold text-neutral-200 text_shadow">
+					&copy; 2021 - My App</p>
+			</footer>
+		</body>
+	</html>
