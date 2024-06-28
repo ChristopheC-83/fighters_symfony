@@ -1,0 +1,2 @@
+symfony console tailwind:build --watch
+

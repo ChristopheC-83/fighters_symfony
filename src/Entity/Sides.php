@@ -45,6 +45,10 @@ class Sides
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->side; // Retourne le nom du côté
+    }
 
     /**
      * @return Collection<int, Fighters>
