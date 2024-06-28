@@ -4,7 +4,29 @@
 {% endblock %}
 
 {% block body %}
-	<div class="card_container">
-        <h1 class="text-3xl font-bold text-neutral-200 text-shadow">Tous mes Fighters !</h1>
+	<div class="flex-col card_container">
+        <h1 class="my-6 text-3xl font-bold text-neutral-200 text-shadow">Tous mes Fighters !</h1>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 min-h-60">
+        {% for fighter in fighters %}
+        <div class="{{ fighter.side == 'light' ? 'border_light' : 'border_dark' }} rounded-lg w-[230px] h-auto overflow-hidden bg-neutral-700 pb-4 text-neutral-100 ">
+            <img src="/images/fighters/{{ fighter.image }}" alt="{{ fighter.name }}" class="object-contain mb-4 w-96">
+            <h2 class="text-2xl text-center uppercase text-neutral-100 text_shadow">{{ fighter.name }}</h2>
+            <div class="flex flex-col px-3">
+                <div class="flex items-center justify-between"><p class="text_shadow">Santé</p><p class="font-bold">{{ fighter.health }}  PV</p></div>
+                <div class="flex items-center justify-between"><p class="text_shadow">Magie</p><p class="font-bold">{{ fighter.magic }}  PM</p></div>
+                <div class="flex items-center justify-between"><p class="text_shadow">Puissance</p><p class="font-bold">{{ fighter.power }} ATK</p></div>
+
+                <div class="flex items-center justify-between my-4">
+                <a href="#"><div class="midFlex btn btn_update"><p>Modifier</p></div></a>
+                <a href="{{ path('app_delete', {'id' :  fighter.id}) }}"><div class="midFlex btn btn_delete"><p>Supprimer</p></div></a>
+                </div>
+                
+            </div>
+        </div>
+        
+        {% endfor %}
+        </div>
+
+        
     </div>
 {% endblock %}
