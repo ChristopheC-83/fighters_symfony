@@ -45,7 +45,7 @@ class FightersType extends AbstractType
                     'class' => 'form_label',
                 ],
                 'attr' => [
-                    'class' => 'form_input',
+                    'class' => 'form_input text-neutral-100',
                 ],
                 'constraints' => [
                     new Image([

@@ -22,6 +22,7 @@ class CreateController extends AbstractController
         EntityManagerInterface $entityManager,
         SluggerInterface $slugger
     ): Response {
+
         $fighter = new Fighters();
         $sides = $sidesRepository->findAll();
 
@@ -30,8 +31,16 @@ class CreateController extends AbstractController
         ]);
 
         $form->handleRequest($request);
+        // dd($form->getData()->getName());
+
+        if ( $entityManager->getRepository(Fighters::class)->findOneBy(['name' => $form->getData()->getName()]) !== null) {
+            $this->addFlash('danger', 'Ce nom de fighter est déjà utilisé déjà');
+            return $this->redirectToRoute('app_create');
+        }
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $img = $form->get('image')->getData();
 
             if ($img) {
