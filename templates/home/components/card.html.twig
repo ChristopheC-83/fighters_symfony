@@ -1,5 +1,5 @@
 <div class="{{ fighter.side == 'light' ? 'border_light' : 'border_dark' }} rounded-lg w-[230px] h-auto overflow-hidden bg-neutral-700 pb-4 text-neutral-100 ">
-	<img src="/images/fighters/{{ fighter.image }}" alt="{{ fighter.name }}" class="object-contain mb-4 w-96">
+	<img src="/images/fighters/{{ fighter.image }}" alt="{{ fighter.name }}" class="object-contain mb-4 w-96 bg-neutral-500 hover:scale-[1.05] duration-300">
 	<h2 class="text-2xl text-center uppercase text-neutral-100 text_shadow">{{ fighter.name }}</h2>
 	<div class="flex flex-col px-3">
 		<div class="flex items-center justify-between">
@@ -19,7 +19,7 @@
 		</div>
 
 		<div class="flex items-center justify-between my-4">
-			<a href="#">
+			<a href="{{ path('app_create', {'id' : fighter.id}) }}">
 				<div class="midFlex btn btn_update">
 					<p>Modifier</p>
 				</div>

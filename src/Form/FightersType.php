@@ -41,12 +41,14 @@ class FightersType extends AbstractType
             ->add('image', FileType::class, [
                 'label' => 'Avatar',
                 'mapped' => false, // ne sera pas lié à l'entité 'Fighters'
+                'required' => false, // le champ n'est pas obligatoire
                 'label_attr' => [
                     'class' => 'form_label',
                 ],
                 'attr' => [
                     'class' => 'form_input text-neutral-100',
                 ],
+                'data' => $options['current_image'],
                 'constraints' => [
                     new Image([
                         'maxSize' => '500k',
@@ -118,6 +120,7 @@ class FightersType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Fighters::class,
             'sides' => null,
+            'current_image' => null,
         ]);
     }
 }

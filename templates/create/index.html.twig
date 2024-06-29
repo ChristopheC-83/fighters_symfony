@@ -4,9 +4,39 @@
 {% endblock %}
 
 {% block body %}
-        <h1 class="mb-4 text-3xl font-bold text-center text-neutral-200 text-shadow">Un combattant de plus ?</h1>
-	<div class="card_container">
+	<h1 class="mb-4 text-3xl font-bold text-center text-neutral-200 text-shadow">
+ 
+		{% if fighter.id != null %}
+			Modifier le combattant
+			{{ fighter.name }}
+		{% else %}
+			Un combattant de plus ?
+		{% endif %}
 
-        <div class="w-full px-2 md:px-4 lg:px-6">{{form(fighter_form)}}</div>
-    </div>
+
+	</h1>
+	<div class="flex-col w-11/12 p-2 mx-auto mb:p-3 md:p-4 sm:w-10/12 md:w-9/12 max-w-[600px]">
+
+		{{ form_start(fighter_form) }}
+		{{ form_row(fighter_form.name, {'attr': {'class': 'form_input'}}) }}
+		{% if fighter.image %}
+			<div class="flex flex-col ">
+                        <h4 class="text-center text-neutral-100">Avatar actuel :</h4>
+				<img src="{{ asset('images/fighters/' ~ fighter.image) }}" alt="Avatar du combattant" class="h-40 mx-auto rounded-lg">
+			</div>
+		{% endif %}
+		{{ form_row(fighter_form.image, {'attr': {'class': 'form_input text-neutral-100'}}) }}
+		{{ form_row(fighter_form.health, {'attr': {'class': 'form_input'}}) }}
+		{{ form_row(fighter_form.magic, {'attr': {'class': 'form_input'}}) }}
+		{{ form_row(fighter_form.power, {'attr': {'class': 'form_input'}}) }}
+		{{ form_row(fighter_form.side, {'attr': {'class': 'form_input'}}) }}
+                {% if fighter.id != null %}
+			
+		{{ form_row(fighter_form.submit, {'label': 'Modifier ce combattant', 'attr': {'class': 'btn_form'}}) }}
+		{% else %}
+			
+		{{ form_row(fighter_form.submit, {'label': 'Créer ce combattant', 'attr': {'class': 'btn_form'}}) }}
+		{% endif %}
+		{{ form_end(fighter_form) }}
+	</div>
 {% endblock %}
