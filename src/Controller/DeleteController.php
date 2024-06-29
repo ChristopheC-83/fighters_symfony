@@ -39,6 +39,13 @@ class DeleteController extends AbstractController
         }
 
         $this->addFlash('success', 'Le fighter a été supprimé avec succès.');
+
+         // Redirige vers la dernière page visitée
+         $referer = $request->headers->get('referer');
+         if ($referer) {
+             return $this->redirect($referer);
+         }
+         
         return $this->redirectToRoute('app_home');
     }
 

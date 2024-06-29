@@ -1,0 +1,35 @@
+<div class="{{ fighter.side == 'light' ? 'border_light' : 'border_dark' }} rounded-lg w-[230px] h-auto overflow-hidden bg-neutral-700 pb-4 text-neutral-100 ">
+	<img src="/images/fighters/{{ fighter.image }}" alt="{{ fighter.name }}" class="object-contain mb-4 w-96">
+	<h2 class="text-2xl text-center uppercase text-neutral-100 text_shadow">{{ fighter.name }}</h2>
+	<div class="flex flex-col px-3">
+		<div class="flex items-center justify-between">
+			<p class="text_shadow">Santé</p>
+			<p class="font-bold">{{ fighter.health }}
+				PV</p>
+		</div>
+		<div class="flex items-center justify-between">
+			<p class="text_shadow">Magie</p>
+			<p class="font-bold">{{ fighter.magic }}
+				PM</p>
+		</div>
+		<div class="flex items-center justify-between">
+			<p class="text_shadow">Puissance</p>
+			<p class="font-bold">{{ fighter.power }}
+				ATK</p>
+		</div>
+
+		<div class="flex items-center justify-between my-4">
+			<a href="#">
+				<div class="midFlex btn btn_update">
+					<p>Modifier</p>
+				</div>
+			</a>
+			<a href="{{ path('app_delete', {'id' : fighter.id}) }}">
+				<div class="midFlex btn btn_delete">
+					<p>Supprimer</p>
+				</div>
+			</a>
+		</div>
+
+	</div>
+</div>

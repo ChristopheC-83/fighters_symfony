@@ -4,7 +4,13 @@
 {% endblock %}
 
 {% block body %}
-	<div class="card_container">
+	<div class="flex-col card_container">
         <h1 class="text-3xl font-bold text-neutral-200 text-shadow">Les combattants du côté Obscur !</h1>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 min-h-60">
+        {# {{dump(fighters)}} #}
+			{% for fighter in fighters %}
+				{{ include('home/components/card.html.twig', {fighter: fighter})}}
+			{% endfor %}
+		</div>
     </div>
 {% endblock %}
